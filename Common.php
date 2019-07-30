@@ -12,6 +12,8 @@
  *
  * @param $param
  */
-function dd($param){
-    var_dump($param);die;
+function dd($param)
+{
+    var_dump($param);
+    die;
 }

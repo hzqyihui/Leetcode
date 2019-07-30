@@ -13,7 +13,8 @@ include_once "Common.php";
  * @param String $num2
  * @return String
  */
-function multiply($num1, $num2) {
+function multiply($num1, $num2)
+{
     $num1Size = strlen($num1);
     $num2Size = strlen($num2);
 
