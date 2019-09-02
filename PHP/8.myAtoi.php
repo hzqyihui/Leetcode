@@ -77,7 +77,7 @@ dd($result);
  */
 function myAtoi($str)
 {
-    $str    = trim($str);
+    $str    = trim($str);   //去掉所有空字符
     $length = strlen($str);
     $result = '';
     for ($i = 0; $i < $length; $i++) {
@@ -116,8 +116,8 @@ function myAtoi($str)
         $result = '-'.$result;
     }
     $result = ltrim($result, '0');
-//    $result = intval($result);
-    (empty($result) || $result == '-') && $result = 0;
+//    $result = intval($result);   //也可以直接使用类型转换（即可概括以上两个if语句块），即可把字符串给转换为整型（最好不使用类型转换）。
+    (empty($result) || $result == '-') && $result = 0;   //如果结果为空，或者为负数，按题意则直接赋值为0
     if (is_numeric($result)) {
         $result > pow(2, 31)-1 && $result = pow(2, 31)-1;
         $result < pow(-2, 31) && $result = pow(-2, 31);
