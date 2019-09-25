@@ -14,6 +14,6 @@
  */
 function dd($param)
 {
-    var_dump($param);
+    print_r($param);
     die;
 }
