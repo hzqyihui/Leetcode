@@ -64,9 +64,30 @@ dd($result);
  * @param Integer $val
  * @return Integer
  */
+//function removeElement(&$nums, $val) {
+//    $nums = array_filter($nums, function ($num) use($val){
+//        return $num != $val;
+//    });
+//    return count($nums);
+//}
+
+
+/**
+ * @param Integer[] $nums
+ * @param Integer $val
+ * @return Integer
+ */
 function removeElement(&$nums, $val) {
-    $nums = array_filter($nums, function ($num) use($val){
-        return $num != $val;
-    });
-    return count($nums);
+    if(empty($nums)){
+        return 0;
+    }
+    $slow = $fast = 0;
+    while ($fast < count($nums)){
+        if($nums[$fast] != $val) {
+            $nums[$slow] = $nums[$fast];
+            $slow++;
+        }
+        $fast++;
+    }
+    return $slow;
 }

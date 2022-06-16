@@ -31,14 +31,33 @@ dd($result);
  * @param Integer[] $nums
  * @return NULL
  */
+//function moveZeroes(&$nums) {
+//    $originLength = count($nums);
+//    $nums = array_filter($nums, function ($num){
+//        return $num !== 0;
+//    });
+//    $newLength = count($nums);
+//    for($i = 0; $i< $originLength - $newLength; $i++){
+//        array_push($nums, 0);
+//    }
+//    return $nums;
+//}
+
 function moveZeroes(&$nums) {
-    $originLength = count($nums);
-    $nums = array_filter($nums, function ($num){
-        return $num !== 0;
-    });
-    $newLength = count($nums);
-    for($i = 0; $i< $originLength - $newLength; $i++){
-        array_push($nums, 0);
+    if(empty($nums)){
+        return $nums;
+    }
+    $slow = $fast=0;
+    while ($fast < count($nums)){
+        if($nums[$fast] != 0){
+            $nums[$slow] = $nums[$fast];
+            $slow++;
+        }
+        $fast++;
+    }
+    for (;$slow<count($nums);$slow++){
+        $nums[$slow] = 0;
     }
     return $nums;
+
 }
